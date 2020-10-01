@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="../css/style.css">
+     <title>Home</title>
+</head>
+
+<body>
+     <h1>Easy bin creation!</h1>
+     <button onclick="redirectToSumbit()" style="padding: 10vh; background-color: #faabab; font-size: 4rem;">Create a
+          bin!</button>
+     <h3>Click the button to create a bin! <br> Or <br>Put the bin code here:
+          <input class="idBinAreaC" id="putBinID" type="text">
+          <button class="putBinIDBut" onclick="redirectToBin(getElement('id', 'putBinID', true).value)">Go to
+               bin</button>
+     </h3>
+     <script src="https://cdn.jsdelivr.net/gh/Tyson3101/getElement@6ec9593/src/main.js"></script>
+     <script src="../js/bin.js" defer></script>
+</body>
+
+</html>
