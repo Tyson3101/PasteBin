@@ -4,7 +4,7 @@ const path = require('path')
 const fs = require('fs')
 const app = express()
 const PORT = process.env.PORT || 5000;
-const dbRouter = require('../src/database/routeToDbInfo');
+const dbRouter = require(`${__dirname}/database/database/routeToDbInfo`);
 app.use('/info/bin', dbRouter)
 app.use(express.json())
 app.use(express.static(path.join(__dirname, 'public')))
