@@ -9,7 +9,8 @@
 </head>
 
 <body>
-     <h1 id="BinHeader">Bin <button id="redirect" onclick="redirectToSumbit()">Create a bin!</button></h1>
+     <h1 id="BinHeader">Bin <button id="redirect" onclick="redirectToSumbit()">Create a bin!</button> <button
+               id="redirect" onclick="redirectToHome()">Home</button></h1>
      <h3>Share this bin: <a href="/bin/<%= obj.binID %>"><%= path %></a></h3>
      <textarea readonly id="BinAreaPaste">
 <%= text.trim() %>
@@ -18,6 +19,11 @@
           src="https://g1-addtext.ft-uc.com/MjAyMDEwMDE/addtext_com_MTUxMjM3OTYyNA.png">
      <script src="https://cdn.jsdelivr.net/gh/Tyson3101/getElement@6ec9593/src/main.js" defer></script>
      <script src="../js/bin.js" defer></script>
+     <script>
+          function redirectToHome() {
+               window.location = '/'
+          }
+     </script>
 </body>
 
 </html>

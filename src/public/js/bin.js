@@ -18,9 +18,11 @@ async function redirectToBin(valu) {
 
 }
 
+
 async function createBin() {
      let code = getElement('id', 'BinCode', true).value;
-     if (code.split(' ').length <= 5) {
+     let lengthStr = getElement('id', 'BinCode', true).value.replace(/\n/g, ' ')
+     if (lengthStr.split(' ').length <= 5) {
           return window.alert('Please have at least 5 words!')
      }
      const options = {

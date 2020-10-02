@@ -1,11 +1,5 @@
 [{
-      "type": "info",
-      "binsCount": 1,
-      "currentID": 1000
-   },
-   {
-      "type": "SaveText",
-      "binID": 1000,
-      "text": "* ADMINISTRATOR (implicitly has all permissions, and bypasses all channel overwrites)\n* CREATE_INSTANT_INVITE (create invitations to the guild)\n* KICK_MEMBERS\n* BAN_MEMBERS\n* MANAGE_CHANNELS (edit and reorder channels)\n* MANAGE_GUILD (edit the guild information, region, etc.)\n* ADD_REACTIONS (add new reactions to messages)\n* VIEW_AUDIT_LOG\n* PRIORITY_SPEAKER\n* STREAM\n* VIEW_CHANNEL\n* SEND_MESSAGES\n* SEND_TTS_MESSAGES\n* MANAGE_MESSAGES (delete messages and reactions)\n* EMBED_LINKS (links posted will have a preview embedded)\n* ATTACH_FILES\n* READ_MESSAGE_HISTORY (view messages that were posted prior to opening Discord)\n* MENTION_EVERYONE\n* USE_EXTERNAL_EMOJIS (use emojis from different guilds)\n* VIEW_GUILD_INSIGHTS\n* CONNECT (connect to a voice channel)\n* SPEAK (speak in a voice channel)\n* MUTE_MEMBERS (mute members across all voice channels)\n* DEAFEN_MEMBERS (deafen members across all voice channels)\n* MOVE_MEMBERS (move members between voice channels)\n* USE_VAD (use voice activity detection)\n* CHANGE_NICKNAME\n* MANAGE_NICKNAMES (change other members' nicknames)\n* MANAGE_ROLES\n* MANAGE_WEBHOOKS\n* MANAGE_EMOJIS\n"
-   }
-]
+   "type": "info",
+   "binsCount": 0,
+   "currentID": 999
+}]
