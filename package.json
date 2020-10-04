@@ -5,8 +5,7 @@
   "main": "src/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/server.js",
-    "dStart": "nodemon src/server.js"
+    "start": "nodemon src/server.js"
   },
   "nodemonConfig": {
     "ignore": [
@@ -17,6 +16,7 @@
   "author": "Tyson",
   "license": "ISC",
   "dependencies": {
+    "date-fns": "^2.16.1",
     "dotenv": "^8.2.0",
     "ejs": "^3.1.5",
     "express": "^4.17.1",

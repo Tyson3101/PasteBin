@@ -10,8 +10,9 @@
 
 <body>
      <h1 id="BinHeader">Bin <button id="redirect" onclick="redirectToSumbit()">Create a bin!</button> <button
-               id="redirect" onclick="redirectToHome()">Home</button></h1>
-     <h3>Share this bin: <a href="/bin/<%= obj.binID %>"><%= path %></a></h3>
+               id="redirect" onclick="redirectToHome()">Home</button>
+     </h1>
+     <h3>Share this bin: <a href="/bin/<%= obj.binID %>"><%= path %></a> | Created At: <%= time %></h3>
      <textarea readonly id="BinAreaPaste">
 <%= text.trim() %>
 </textarea>

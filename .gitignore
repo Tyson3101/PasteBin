@@ -1,2 +1,4 @@
 .env
 node_modules
+src/database/database.json
+ngrok.exe
