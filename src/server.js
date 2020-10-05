@@ -24,7 +24,6 @@ let databaseData = JSON.parse(fs.readFileSync(databaseURL))
 
 app.get('/', (req, res) => {
      res.render('index')
-     console.log(req.ip)
 })
 
 app.get('/create', (req, res) => {
