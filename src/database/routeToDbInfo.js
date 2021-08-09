@@ -1,27 +1,16 @@
-require('dotenv').config()
-const express = require('express')
-const router = express.Router()
-const fs = require('fs')
+require("dotenv").config();
+const express = require("express");
+const router = express.Router();
+const Keyv = require("@keyv/mongo");
 
-const databaseURL = `${__dirname}/database.json`
-let databaseData = JSON.parse(fs.readFileSync(databaseURL))
+const keyv = new Keyv(process.env.DB);
+keyv.on("error", (err) => console.log("Connection Error", err));
 
-router.get('/currentID', (req, res) => {
-     databaseData = JSON.parse(fs.readFileSync(databaseURL))
-     res.json({
-          ...databaseData[0]
-     })
-})
-
-router.get('/allData/:secretkey', (req, res) => {
-     if (req.params['secretkey'] === process.env.secretDBKey) {
-          databaseData = JSON.parse(fs.readFileSync(databaseURL))
-          return res.json({
-               ...databaseData[0]
-          })
-     } else {
-          return res.sendStatus(401)
-     }
-})
+router.get("/currentID", async (req, res) => {
+  databaseData = await keyv.get("pastebin");
+  res.json({
+    ...databaseData[0],
+  });
+});
 
 module.exports = router;

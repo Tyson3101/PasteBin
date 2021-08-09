@@ -1,8 +1,8 @@
 require("dotenv").config();
 const express = require("express");
 const path = require("path");
-const fs = require("fs");
 const app = express();
+const Keyv = require("@keyv/mongo");
 const {
   differenceInDays,
   differenceInHours,
@@ -19,8 +19,8 @@ app.use(express.static(path.join(__dirname, "public")));
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "public/views"));
 
-const databaseURL = `${__dirname}/database/database.json`;
-let databaseData = JSON.parse(fs.readFileSync(databaseURL));
+const keyv = new Keyv(process.env.DB);
+keyv.on("error", (err) => console.log("Connection Error", err));
 
 app.get("/", (req, res) => {
   res.render("index");
@@ -30,9 +30,9 @@ app.get("/create", (req, res) => {
   res.render("create");
 });
 
-app.get("/bin/:BinID", (req, res) => {
+app.get("/bin/:BinID", async (req, res) => {
   let fullPath = req.protocol + "://" + req.get("host") + req.originalUrl;
-  databaseData = JSON.parse(fs.readFileSync(databaseURL));
+  databaseData = await keyv.get("pastebin");
   console.log(databaseData);
   let BinID = parseInt(req.params.BinID);
   console.log(BinID);
@@ -50,8 +50,8 @@ app.get("/bin/:BinID", (req, res) => {
   });
 });
 
-app.post("/create", (req, res) => {
-  databaseData = JSON.parse(fs.readFileSync(databaseURL));
+app.post("/create", async (req, res) => {
+  databaseData = await keyv.get("pastebin");
   let id = databaseData[0].currentID;
   databaseData[0].binsCount += 1;
   databaseData[0].currentID = id += 1;
@@ -62,7 +62,7 @@ app.post("/create", (req, res) => {
     text: req.body.text,
   };
   databaseData.push(toPush);
-  fs.writeFileSync(databaseURL, JSON.stringify(databaseData, null, 3));
+  keyv.set("pastebin", databaseData);
   res.sendStatus(200);
 });
 
