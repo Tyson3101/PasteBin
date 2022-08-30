@@ -34,7 +34,7 @@ app.get("/bin/:BinID", async (req, res) => {
   let fullPath = req.protocol + "://" + req.get("host") + req.originalUrl;
   databaseData = await keyv.get("pastebin");
   console.log(databaseData);
-  let BinID = parseInt(req.params.BinID);
+  let BinID = req.params.BinID;
   console.log(BinID);
   if (!databaseData.some((a) => a["binID"] === BinID)) {
     return res.render("notFound");
@@ -52,9 +52,8 @@ app.get("/bin/:BinID", async (req, res) => {
 
 app.post("/create", async (req, res) => {
   databaseData = await keyv.get("pastebin");
-  let id = databaseData[0].currentID;
+  let id = (await import("nanoid")).nanoid();
   databaseData[0].binsCount += 1;
-  databaseData[0].currentID = id += 1;
   const toPush = {
     type: "SaveText",
     binID: id,
@@ -62,8 +61,8 @@ app.post("/create", async (req, res) => {
     text: req.body.text,
   };
   databaseData.push(toPush);
-  keyv.set("pastebin", databaseData);
-  res.sendStatus(200);
+  await keyv.set("pastebin", databaseData);
+  res.json(toPush);
 });
 
 app.get("*", (req, res) => {

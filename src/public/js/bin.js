@@ -7,14 +7,7 @@ function redirectToHome() {
 }
 
 async function redirectToBin(valu) {
-  const val = parseInt(valu);
-  let fetched = await fetch("/info/bin/currentID");
-  let data = await fetched.json();
-  if (!isNaN(val) && val >= 1000 && val <= data.currentID) {
-    return (window.location = `/bin/${valu}`);
-  } else {
-    return window.alert("Invaild Code");
-  }
+  return (window.location = `/bin/${valu}`);
 }
 
 async function createBin() {
@@ -32,10 +25,8 @@ async function createBin() {
       text: code,
     }),
   };
-  await fetch("/create", options);
+  let fetched = await fetch("/create", options);
   console.log("Done Creating");
-
-  let fetched = await fetch("/info/bin/currentID");
   let data = await fetched.json();
-  window.location = `/bin/${data.currentID}`;
+  window.location = `/bin/${data.binID}`;
 }

@@ -1,50 +1,51 @@
 * {
-     box-sizing: border-box;
-     font-family: Arial, Helvetica, sans-serif;
-     background-color: lightcoral;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: lightcoral;
 }
 
 #BinAreaPaste {
-     display: inline;
-     min-width: 50vw;
-     min-height: 81vh;
-     font-family: 'Courier New', Courier, monospace;
-     font-size: large;
-     background-color: antiquewhite;
+  display: inline;
+  min-width: 50vw;
+  min-height: 81vh;
+  font-family: "Courier New", Courier, monospace;
+  font-size: large;
+  background-color: antiquewhite;
 }
 
 #BinHeader {
-     display: flex;
-     background-color: lightskyblue;
-     font-size: 3rem;
+  display: flex;
+  background-color: lightskyblue;
+  font-size: 3rem;
 }
 
 #redirect {
-     display: flex;
-     margin-left: 10px;
-     margin-top: 15px;
-     background-color: lightgoldenrodyellow;
+  display: flex;
+  margin-left: 10px;
+  margin-top: 15px;
+  background-color: lightgoldenrodyellow;
 }
 
 #BinCode {
-     display: inline;
-     min-width: 50vw;
-     min-height: 88vh;
-     font-family: 'Courier New', Courier, monospace;
-     font-size: large;
-     background-color: antiquewhite;
+  display: inline;
+  min-width: 50vw;
+  min-height: 88vh;
+  font-family: "Courier New", Courier, monospace;
+  font-size: large;
+  background-color: antiquewhite;
 }
 
 button {
-     background: #faabab;
-     padding: 7px;
+  background: #faabab;
+  padding: 7px;
+  cursor: pointer;
 }
 
 #putBinID {
-     background: #faabab;
-     height: 3vh;
+  background: #faabab;
+  height: 3vh;
 }
 
 .putBinIDBut {
-     background: #faabab;
+  background: #faabab;
 }
